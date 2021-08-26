@@ -4,6 +4,22 @@
 <div class="flex justify-center">
     <div class="w-8/12 bg-white p-6 rounded-lg text-center">
         <h1 class="p-4 text-5xl">Covid Cases</h1>
+
+        <div class="flex justify-end">
+            <form action="#" method="post" class="mr-1">
+                @csrf
+                <button type="submit" class="text-white bg-blue-800 rounded-md px-4 py-2 my-2">PDF</button>
+            </form>
+            <form action="#" method="post" class="mr-1">
+                @csrf
+                <button type="submit" class="text-white bg-green-500 rounded-md px-4 py-2 my-2">Export</button>
+            </form>
+            <form action="#" method="post" class="mr-1">
+                @csrf
+                <button type="submit" class="text-white bg-yellow-500 rounded-md px-4 py-2 my-2">Import</button>
+            </form>
+        </div>
+
         <table class="table-auto shadow-lg bg-white center w-full">
             <thead>
                 <tr>
