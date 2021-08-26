@@ -16,7 +16,8 @@
                 @csrf
                 <button type="submit" class="text-white bg-green-500 rounded-md px-4 py-2 my-2">Export</button>
             </form>
-            <form action="#" method="post" class="mr-1">
+            <form action="{{ route('dashboard.import') }}" method="post" class="mr-1">
+                @method('GET')
                 @csrf
                 <button type="submit" class="text-white bg-yellow-500 rounded-md px-4 py-2 my-2">Import</button>
             </form>

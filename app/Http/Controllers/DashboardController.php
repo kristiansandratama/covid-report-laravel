@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Excel;
 use Pdf;
 use App\Exports\CovidCaseExport;
+use App\Imports\CovidCaseImport;
 use App\Models\CovidCase;
 use Illuminate\Http\Request;
 
@@ -40,5 +41,22 @@ class DashboardController extends Controller
     public function export()
     {
         return Excel::download(new CovidCaseExport, 'covid_cases_report.xlsx');
+    }
+
+    public function import()
+    {
+        return view('dashboard_import');
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'file' => 'required|mimes:csv,xls,xlsx'
+        ]);
+
+        $file = $request->file('file');
+        Excel::import(new CovidCaseImport, $file);
+
+        return back()->withStatus("Spreadsheet imported successfully!");
     }
 }
