@@ -6,7 +6,8 @@
         <h1 class="p-4 text-5xl">Covid Cases</h1>
 
         <div class="flex justify-end">
-            <form action="#" method="post" class="mr-1">
+            <form action="{{ route('dashboard.print') }}" method="post" class="mr-1">
+                @method('GET')
                 @csrf
                 <button type="submit" class="text-white bg-blue-800 rounded-md px-4 py-2 my-2">PDF</button>
             </form>
