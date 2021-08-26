@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Excel;
 use Pdf;
+use App\Exports\CovidCaseExport;
 use App\Models\CovidCase;
 use Illuminate\Http\Request;
 
@@ -34,5 +35,10 @@ class DashboardController extends Controller
             'dead_sum' => $dead_sum,
         ]);
         return $pdf->stream();
+    }
+
+    public function export()
+    {
+        return Excel::download(new CovidCaseExport, 'covid_cases_report.xlsx');
     }
 }

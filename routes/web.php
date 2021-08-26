@@ -19,3 +19,4 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/dashboard/print', [DashboardController::class, 'print'])->name('dashboard.print');
+Route::get('/dashboard/export', [DashboardController::class, 'export'])->name('dashboard.export');

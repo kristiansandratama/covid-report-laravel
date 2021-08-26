@@ -11,7 +11,8 @@
                 @csrf
                 <button type="submit" class="text-white bg-blue-800 rounded-md px-4 py-2 my-2">PDF</button>
             </form>
-            <form action="#" method="post" class="mr-1">
+            <form action="{{ route('dashboard.export') }}" method="post" class="mr-1">
+                @method('GET')
                 @csrf
                 <button type="submit" class="text-white bg-green-500 rounded-md px-4 py-2 my-2">Export</button>
             </form>
